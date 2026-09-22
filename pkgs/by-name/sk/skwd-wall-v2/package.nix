@@ -148,5 +148,8 @@ rustPlatform.buildRustPackage {
     platforms = [ "x86_64-linux" ];
   };
 
-  passthru.tests = nixosTests.skwd-wall-v2;
+  passthru.tests = [
+    nixosTests.skwd-wall-v2
+    nixosTests.skwd-wall-v2-module
+  ];
 }
