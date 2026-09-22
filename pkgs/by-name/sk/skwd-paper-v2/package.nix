@@ -80,6 +80,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
   ]
   ++ graphicsRuntime;
 
+  preCheck = ''
+    export LD_LIBRARY_PATH="${lib.makeLibraryPath graphicsRuntime}''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+  '';
+
   postFixup = ''
     for bin in "$out"/bin/skwd-wall-vk "$out"/bin/skwd-paper-v2; do
       patchelf --add-rpath "${
