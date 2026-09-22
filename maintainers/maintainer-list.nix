@@ -9998,6 +9998,12 @@
     githubId = 4717341;
     name = "Brenton Horne";
   };
+  futurekismo = {
+    name = "futurekismo";
+    email = "futurekismo@gmail.com";
+    github = "futurekismo-oss";
+    githubId = 227779972;
+  };
   fuuzetsu = {
     email = "fuuzetsu@fuuzetsu.co.uk";
     github = "Fuuzetsu";
