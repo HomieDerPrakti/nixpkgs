@@ -73,7 +73,9 @@ rustPlatform.buildRustPackage (finalAttrs: {
   ++ graphicsRuntime;
 
   preCheck = ''
-    export LD_LIBRARY_PATH="${lib.makeLibraryPath ([ fontconfig ] ++ graphicsRuntime)}''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+    export LD_LIBRARY_PATH="${
+      lib.makeLibraryPath ([ fontconfig ] ++ graphicsRuntime)
+    }''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
   '';
 
   cargoBuildFlags = [
@@ -140,7 +142,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
     description = "GPU-rendered graphical client for the Skwd wallpaper suite v2";
     homepage = "https://github.com/liixini/skwd-wall";
     license = with lib.licenses; [
-      gpl3Plus
       mit
       cc-by-40
       asl20
@@ -156,7 +157,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   };
 
   passthru.tests = {
-    inherit (nixosTests) skwd-wall-v2 skwd-wall-v2-module;
+    inherit (nixosTests) skwd-wall-v2;
   };
 
   passthru.updateScript = nix-update-script {
