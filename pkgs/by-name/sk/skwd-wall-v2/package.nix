@@ -151,7 +151,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   };
 
   passthru.tests = {
-    inherit (nixosTests) skwd-wall-v2;
+    inherit (nixosTests) skwd-wall-v2 skwd-wall-v2-module;
   };
 
   passthru.updateScript = nix-update-script {
